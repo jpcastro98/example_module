@@ -39,19 +39,18 @@ config:
 Estos pasos te permitirán desplegar el proyecto utilizando Lando. 
 
 /example-module/form
-##Form: 
+###Form: 
 Se creo el formulario para registrar usuarios, el formulario funciona mediante el envió de ajax, también se creo un template twig custom para mostrar el formulario y se le aplicaron estilos.
 /example-module/data
-##data 
-Mediante esta ruta vamos a poder ver los datos registrados en el formulario visitado anteriormente.
-#Service:
+###data 
+Mediante esta ruta vamos a poder ver los datos registrados en el formulario visitado anteriormente.###Service:
 El ExampleService, es el servicio que nos permite consultar y almacenar los datos en la base de datos. 
-##Cargos
- Para los cargos al instalar el modulo mediante el hook_install se crea una taxonomía en la cual también se crean 3 terminos por defecto que son los cargos relacionados en la prueba, 
+###Cargos
+ Para los cargos al instalar el modulo mediante el hook_install se crea una taxonomía en la cual tamb#ién se crean 3 terminos por defecto que son los cargos relacionados en la prueba, 
  así mismo se crea la tabla base 'example_users' donde se van a almacenar los datos registrados en el formulario construido.
 
-##example_module_rest:
-  Se creo un modulo REST, que tiene como dependencias los siguientes modulos:
+###example_module_rest:
+  Se creo un modulo REST, que tiene como dependencias los siguientes modulos#:
     -example_module
     -rest
     -restui
