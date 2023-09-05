@@ -1,0 +1,88 @@
+*{
+  margin: 0;
+  padding: 0px;
+}
+
+  .container_fields{
+    border: 1px solid #9ba415;
+    border-radius: 15px;
+  }
+
+  .container_fields h1 {
+      margin: 0px auto;
+      padding: 15px 0px;
+      width: 100%;
+      align-items: center;
+      text-align: center;
+      background-color: #9ba415;
+      border-top-left-radius: 14px;
+      border-top-right-radius: 14px;
+      color: white;
+      font-family: ui-monospace;
+  }
+ .container_custom_fields{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  color: #9ba415;
+}
+
+.container_custom_fields .js-form-item{
+  width: 45%;
+}
+
+
+.container_custom_fields input,select{
+  width: 100%;
+  border: 1px solid #9ba415;
+  color: #9ba415;
+}
+
+.container_custom_fields select{
+  width: 100%;
+  border: 1px solid #9ba415;
+  color: #9ba415;
+}
+
+.container_custom_fields .button{
+  width: auto;
+  background-color: #9ba415;
+  border: 1px solid;
+  margin: 15px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+}
+
+.container_custom_outpot{
+  color: #9ba415;
+  padding-left: 15px;
+  width: 100%;
+}
+
+
+.container_fields .form-item__description{
+ color: black;
+}
+
+.container_fields .messages--error{
+  background-color: white;
+  color: black;
+}
+
+/**Table*/
+.example_users{
+  margin: 0px auto;
+  width: 100%;
+  padding: 0px;
+}
+.example_users th{
+  padding: 5px;
+  color: green;
+  border: 1px solid green;
+}
+.example_users tr,th,td{
+  padding: 5px;
+  border: 1px solid green;
+}

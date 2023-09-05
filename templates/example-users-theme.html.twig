@@ -1,0 +1,24 @@
+<table class="  ">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Identificación</th>
+      <th>Fecha de Nacimiento</th>
+      <th>Cargo Id</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in data %}
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.identification }}</td>
+        <td>{{ item.birthdate|date('Y-m-d') }}</td>
+        <td>{{ item.position_id }}</td>
+        <td>{{ item.status ? 'Activo' : 'Inactivo' }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

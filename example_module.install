@@ -1,0 +1,99 @@
+<?php
+
+use \Drupal\taxonomy\Entity\Vocabulary;
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Example Module module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function example_module_install()
+{
+  // Obtenemos una instancia del Entity Type Manager.
+  $entity_type_manager = \Drupal::entityTypeManager();
+  // Definimos la configuración del vocabulario.
+
+  $vocabulary = $entity_type_manager->getStorage('taxonomy_vocabulary');
+  // Creamos el vocabulario de taxonomía utilizando el Entity Type Manager.
+  if (!$vocabulary->load('positions'))  {
+    $vocabulary_data = [
+      'vid' => 'positions',
+      'name' => t('Positions'),
+      'description' => t('Vocabulary for positions.'),
+      'hierarchy' => 0
+    ];
+    $vocabulary = $vocabulary->create($vocabulary_data);
+    $vocabulary->save();
+
+    $positions = ['Administrador', 'Desarrollador', 'Webmaster'];
+    /**Creamos los termines por defecto */
+    foreach ($positions as $value) {
+      $name = [
+        'name' => $value,
+        'vid' => 'positions'
+      ];
+      $term = $entity_type_manager->getStorage('taxonomy_term')->create($name);
+      $term->save();
+    }
+  }
+}
+
+
+/**
+ * Implements hook_schema().
+ */
+function example_module_schema()
+{
+  $schema['example_users'] = [
+    'description' => 'Table user example.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => t('Primary Key: Unique record ID.'),
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'length' => 255, //
+        'not null' => TRUE, // TRUE or TRUE.
+        'default' => 'some default value',
+        'description' => t('field name of table example_users.'),
+      ],
+      'identification' => [
+        'type' => 'varchar',
+        'length' => 255, //
+        'not null' => TRUE, // TRUE or TRUE.
+        'default' => 'some default value',
+        'description' => t('field identification of table example_users.'),
+      ],
+      'birthdate' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => TRUE,
+        'description' => t('The pubblish date for the single news'),
+      ],
+      'position_id' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'size' => 'small', // tiny / small / medium / normal / big
+        'not null' => TRUE,
+        'description' => t('field fieldname of table example_users.'),
+      ],
+      'status' => [
+        'description' => 'Boolean indicating whether this position is active.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'tiny',
+      ],
+
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}
