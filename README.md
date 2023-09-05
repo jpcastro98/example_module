@@ -33,26 +33,26 @@ config:
 
 ```
 
- 
+
 3. Ejecutar el comando `lando start` para iniciar el contenedor.
 4. Ejecutar `lando composer install` para instalar las dependencias del proyecto.
 5. Ejecutar el comando `lando info` para obtener las credenciales de la base de datos. Crear y configurar el archivo `$settings.local.php` para entornos locales basado en el `$settings.php` con las credenciales correspondientes.
 6. Ejecutar `lando drusn en example_module` y `lando drush en example_module_rest` para instalar los modulos, tener en cuenta las dependecias.
-8. En la configuración del modulo restui "admin/config/services/rest" habilitar el api ExampleRest. 
+8. En la configuración del modulo restui "admin/config/services/rest" habilitar el api ExampleRest.
 
-Estos pasos te permitirán desplegar el proyecto utilizando Lando. 
+Estos pasos te permitirán desplegar el proyecto utilizando Lando.
 
 
-### Form: 
+### Form:
 /example-module/form
 Se creo el formulario para registrar usuarios, el formulario funciona mediante el envió de ajax, también se creo un template twig custom para mostrar el formulario y se le aplicaron estilos.
 
-### Data 
+### Data
 /example-module/data
 Mediante esta ruta vamos a poder ver los datos registrados en el formulario visitado anteriormente.###Service:
-El ExampleService, es el servicio que nos permite consultar y almacenar los datos en la base de datos. 
+El ExampleService, es el servicio que nos permite consultar y almacenar los datos en la base de datos.
 ### Cargos
- Para los cargos al instalar el modulo mediante el hook_install se crea una taxonomía en la cual tamb#ién se crean 3 terminos por defecto que son los cargos relacionados en la prueba, 
+ Para los cargos al instalar el modulo mediante el hook_install se crea una taxonomía en la cual tamb#ién se crean 3 terminos por defecto que son los cargos relacionados en la prueba,
  así mismo se crea la tabla base 'example_users' donde se van a almacenar los datos registrados en el formulario construido.
 
 ### example_module_rest:
@@ -61,7 +61,7 @@ El ExampleService, es el servicio que nos permite consultar y almacenar los dato
     -rest
     -restui
     -user
-la ruta para consultar la api es '/api/example-module-rest/{id}'
+la ruta para consultar la api es '/api/example-module-rest/{id}'.
 
 
 
