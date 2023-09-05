@@ -1,0 +1,5 @@
+services:
+  example_module.service:
+    class: Drupal\example_module\Services\ExampleService
+    arguments: ['@database', '@entity_type.manager']
+

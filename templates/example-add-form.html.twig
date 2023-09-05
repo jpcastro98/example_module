@@ -1,0 +1,19 @@
+<div class="row container_fields">
+  <h1> Grupo Estrenar Vivienda  </h1>
+  {{form|without('advanced','library','name','identification','birthdate','position_id','output','actions')}}
+	<div class="container_custom_fields">
+		{{ form.name }}
+		{{ form.identification }}
+	</div>
+  <div class="container_custom_fields">
+		{{ form.birthdate }}
+		{{ form.position_id }}
+	</div>
+
+  <div class="container_custom_outpot">
+		{{ form.output }}
+	</div>
+  <div class="container_custom_fields">
+		{{ form.actions }}
+	</div>
+</div>

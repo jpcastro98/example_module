@@ -1,0 +1,10 @@
+name: Example Module REST
+type: module
+description: Provides additional functionality for the site.
+package: Grupo Estrenar Vivienda
+core_version_requirement: ^8 || ^9
+dependencies:
+  - example_module
+  - user
+  - rest
+  - restui

@@ -1,0 +1,14 @@
+example_module.example_controller:
+  path: '/example-module/data'
+  defaults:
+    _title: 'Tabla de usuarios'
+    _controller: '\Drupal\example_module\Controller\ExampleModuleController::build'
+  requirements:
+    _permission: 'administer'
+
+example_module.example_form:
+  path: '/example-module/form'
+  defaults:
+    _form: 'Drupal\example_module\Form\ExampleForm'
+  requirements:
+    _permission: 'administer'

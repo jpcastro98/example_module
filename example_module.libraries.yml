@@ -1,0 +1,8 @@
+# Custom module library for general purposes.
+example_module:
+  js:
+    js/example-module.js: {}
+  css:
+    theme:
+      css/example-module.css: {}
+
