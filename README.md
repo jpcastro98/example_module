@@ -38,11 +38,13 @@ config:
 
 Estos pasos te permitirán desplegar el proyecto utilizando Lando. 
 
-/example-module/form
+
 ### Form: 
+/example-module/form
 Se creo el formulario para registrar usuarios, el formulario funciona mediante el envió de ajax, también se creo un template twig custom para mostrar el formulario y se le aplicaron estilos.
+
+### Data 
 /example-module/data
-### data 
 Mediante esta ruta vamos a poder ver los datos registrados en el formulario visitado anteriormente.###Service:
 El ExampleService, es el servicio que nos permite consultar y almacenar los datos en la base de datos. 
 ### Cargos
