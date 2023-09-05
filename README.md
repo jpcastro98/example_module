@@ -1,7 +1,7 @@
-<<<<<<< HEAD
+
 # example_module
 Creación de modulo para prueba técnica.
-=======
+
 ## Desplegar el proyecto
 
 Para desplegar el proyecto, puedes utilizar cualquier herramienta o servidor en el que puedas instalar los siguientes requisitos:
@@ -64,5 +64,3 @@ El ExampleService, es el servicio que nos permite consultar y almacenar los dato
 la ruta para consultar la api es '/api/example-module-rest/{id}'.
 
 
-
->>>>>>> 1684a0b1084a58d31dc96ea273c2707546324f9f
