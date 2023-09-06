@@ -67,12 +67,7 @@ El ExampleService, es el servicio que nos permite consultar y almacenar los dato
     -rest
     -restui
     -user
-  ```
-### RESTUI
-Debemos instalar el modulo restui como ayuda y en la confguración activando las opciones de
-ExampleRest
-
-ruta para consultar la api es '/api/example-module-rest/{id}'.
+la ruta para consultar la api es '/api/example-module-rest/{id}'.
 
 
 
