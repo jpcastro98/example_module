@@ -56,6 +56,10 @@ class ExampleService
       return $data;
     }
   }
+
+  /**
+   * Funcion para obtener todos los usuarios.
+   */
   public function getAllUsers() {
 
     $query = $this->connection->select('example_users', 'u')
@@ -84,13 +88,18 @@ class ExampleService
       'position_id' => $position,
       'status' => $status
     ];
-    /**Se ejecuta el query de insert para la base de datos */
+    /**
+     * Se ejecuta el query de insert para la base de datos
+     */
     $query = $this->connection->insert('example_users')->fields($data)->execute();
     if ($query) {
       return 'Los datos se registraron correctamente.';
     }
   }
 
+  /**
+   * Funcion de actualizar el estado
+   */
 
   public function updateUser($id,$name, $identification, $birthdate, $position)
   {
@@ -105,15 +114,15 @@ class ExampleService
       'position_id' => $position,
       'status' => $status
     ];
-    /**Se ejecuta el query de insert para la base de datos */
+    /**
+     * Se ejecuta el query de update para la base de datos
+     *
+     */
     $query = $this->connection->update('example_users')->fields($data)->condition('id',$id)->execute();
     if ($query) {
       return 'Los datos se actualizaron correctamente.';
     }
   }
-
-
-
     /**
      * Función para eliminar un usuario
      *
@@ -123,7 +132,6 @@ class ExampleService
       $delete = $this->connection->delete('example_users')->condition('id', $id)->execute();
       if ($delete) {
         return 'Usuario eliminado.';
-      }
-    /***/
+
   }
 }
