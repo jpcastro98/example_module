@@ -9,6 +9,7 @@ example_module.example_controller:
 example_module.example_form:
   path: '/example-module/form'
   defaults:
+    _title: Example Form 
     _form: 'Drupal\example_module\Form\ExampleForm'
   requirements:
     _permission: 'administer'

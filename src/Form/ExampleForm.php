@@ -62,7 +62,7 @@ class ExampleForm extends FormBase
     $form['name'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Nombre'),
-      '#maxlength' => 255,
+      '#maxlength' => 100,
       '#required' => TRUE,
       '#description' => t('Sólo caracteres alfanuméricos.'),
 
@@ -73,8 +73,8 @@ class ExampleForm extends FormBase
       '#attributes' => [
         ' type' => 'number',
       ],
-      '#title' => t('Identificacion'),
-      '#description' => t('Cantidad de numeros:(min:6,max:12).'),
+      '#title' => t('Identificación'),
+      '#description' => t('Cantidad de números: (min:6,max:12).'),
       '#min' => 0,
       '#maxlength' => 12,
       '#required' => TRUE
@@ -86,7 +86,8 @@ class ExampleForm extends FormBase
       '#description' => $this->t('Ingresa tu fecha de nacimiento.'),
       '#required' => TRUE,
       '#attributes' => [
-        'max' => date('Y-m-d'),
+        'max' => date('Y-m-d', strtotime('-18 years')),
+        'class' => ['readonly-date-field']
       ],
     ];
 
@@ -146,7 +147,6 @@ class ExampleForm extends FormBase
 
   public function submitForm(array &$form, FormStateInterface $form_state)
   {
-
   }
 
   /**
@@ -154,26 +154,39 @@ class ExampleForm extends FormBase
    */
   public function submitCustomForm(array &$form, FormStateInterface $form_state)
   {
-    // If $form_state contains errors, populate the ajaxResponse content with the error messages
+    /**
+     * Se valida si la validación retorna errores si no se continua con el proceso.
+     */
     if ($form_state->hasAnyErrors()) {
-      $output = "<div id='edit-output'>No se guardaron los datos.</div>";
-      return ['#markup' => $output];
+      $output = "<div id='edit-output'>No se registraron los datos.</div>";
     } else {
+      /**
+       * Se obtienen los datos del formulario y se guardan en variables.
+       */
       $name = $form_state->getValue('name');
-      $identificacion = $form_state->getValue('identification');
+      $identification = $form_state->getValue('identification');
       $birthdate = $form_state->getValue('birthdate');
       $position_id = $form_state->getValue('position_id');
       /**
-       * Guarda los datos en la tabla.
+       * Se valida si ya existe un usuario con está identificación si no se guadar en la base de datos.
        */
-      $markup = $this->exampleService->saveUser($name, $identificacion, $birthdate, $position_id);
-      $output = "<div id='edit-output'>$markup</div>";
-      return ['#markup' => $output];
+      if (!$this->exampleService->getIdentification($identification)) {
+        /**
+         * Guarda los datos en la tabla example_users.
+         */
+        $markup = $this->exampleService->saveUser($name, $identification, $birthdate, $position_id);
+        $output = "<div id='edit-output'>$markup</div>";
+      } else {
+        $output = "<div id='edit-output'>El usuario con identificación $identification ya se encuentra registrado.</div>";
+
+      }
     }
+    return ['#markup' => $output];
   }
   /**
    * Función para obtener los cargos.
    * */
+
   public function getPositions(): array
   {
     /**
@@ -207,7 +220,7 @@ class ExampleForm extends FormBase
      */
     $length  = strlen(strval($identification));
     if ($length < 6 || $length > 12) {
-      return $form_state->setErrorByName('identification', t('El campo identificación puede contener entre 6 y 12 caracteres'));
+      return $form_state->setErrorByName('identification', t('El campo identificación debe contener entre 6 y 12 caracteres.'));
     }
     /**
      * Valida que el campo sólo contenga caracteres numéricos.

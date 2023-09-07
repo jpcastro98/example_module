@@ -33,7 +33,6 @@ class ExampleService
    *   The database connection.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
-   *
    */
   public function __construct(Connection $connection, EntityTypeManagerInterface $entity_type_manager)
   {
@@ -42,6 +41,7 @@ class ExampleService
   }
 
   /**
+   * @param $id user
    * Función para obtener los usuarios
    */
 
@@ -51,6 +51,24 @@ class ExampleService
     $query = $this->connection->select('example_users', 'u')
       ->fields('u', ['id', 'name', 'identification', 'birthdate', 'position_id', 'status']);
     $query->condition('id', $id, '=');
+    $result = $query->execute();
+    if ($result) {
+      $data = $result->fetchAssoc();
+      return $data;
+    }
+  }
+
+  /**
+   * @param $identification user
+   * Función para obtener la identificación de un usuario
+   */
+
+  public function getIdentification($identification)
+  {
+
+    $query = $this->connection->select('example_users', 'u')
+      ->fields('u', ['identification']);
+    $query->condition('identification', $identification, '=');
     $result = $query->execute();
     if ($result) {
       $data = $result->fetchAssoc();
@@ -74,6 +92,7 @@ class ExampleService
   }
 
   /**
+   * @param 'nombre de usuario,identificación,fecha de nacimiento, cargo'
    * Función para guardar los usuarios ingresados en el form.
    */
   public function saveUser($name, $identification, $birthdate, $position)
@@ -100,7 +119,8 @@ class ExampleService
   }
 
   /**
-   * Funcion de actualizar el estado
+   * @param 'nombre de usuario,identificación,fecha de nacimiento, cargo'
+   * Funcion de actualizar el usuario
    */
 
   public function updateUser($id, $name, $identification, $birthdate, $position)
@@ -126,6 +146,7 @@ class ExampleService
     }
   }
   /**
+   * @param $id user
    * Función para eliminar un usuario
    *
    */

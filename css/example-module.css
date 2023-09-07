@@ -1,26 +1,24 @@
-*{
-  margin: 0;
-  padding: 0px;
+/**Estilos de formulario */
+.container_fields {
+  border: 1px solid #9ba415;
+  border-radius: 15px;
+  color: #A4A5A6;
 }
 
-  .container_fields{
-    border: 1px solid #9ba415;
-    border-radius: 15px;
-  }
+.container_fields header {
+  margin: 0px auto;
+  padding: 30px 0px 0px;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  color: white;
+}
 
-  .container_fields h1 {
-      margin: 0px auto;
-      padding: 15px 0px;
-      width: 100%;
-      align-items: center;
-      text-align: center;
-      background-color: #9ba415;
-      border-top-left-radius: 14px;
-      border-top-right-radius: 14px;
-      color: white;
-      font-family: ui-monospace;
-  }
- .container_custom_fields{
+.container_custom_fields {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
@@ -28,24 +26,25 @@
   color: #9ba415;
 }
 
-.container_custom_fields .js-form-item{
-  width: 45%;
+.container_custom_fields .js-form-item {
+  width: 42.5%;
+  margin-bottom: 0px;
 }
 
 
-.container_custom_fields input,select{
+.container_custom_fields input,
+select {
   width: 100%;
-  border: 1px solid #9ba415;
-  color: #9ba415;
+  border: 1px solid #A4A5A6;
+
 }
 
-.container_custom_fields select{
+.container_custom_fields select {
   width: 100%;
-  border: 1px solid #9ba415;
-  color: #9ba415;
+  border: 1px solid #A4A5A6;
 }
 
-.container_custom_fields .button{
+.container_custom_fields .button {
   width: auto;
   background-color: #9ba415;
   border: 1px solid;
@@ -55,34 +54,59 @@
   color: white;
 }
 
-.container_custom_outpot{
-  color: #9ba415;
-  padding-left: 15px;
+.container_fields .form-item__description {
+  color: #575757;
+}
+
+/**Estilos para mensajes de error o exito*/
+.container_custom_outpot {
+  color: #9ba415;;
+  padding-left: 30px;
   width: 100%;
 }
 
-
-.container_fields .form-item__description{
- color: black;
+.container_custom_outpot .messages__container{
+  width: 100%;
+  display: block;
 }
 
-.container_fields .messages--error{
+.container_custom_outpot .messages.messages-list__item {
   background-color: white;
-  color: black;
+  background-image: none;
+  color: #9ba415;
+  padding: 0px;
 }
 
-/**Table*/
-.example_users{
+.messages__icon{
+  display: none;
+}
+
+.readonly-date-field {
+  cursor: not-allowed;
+}
+
+/** Table Styles */
+.example_users {
   margin: 0px auto;
   width: 100%;
   padding: 0px;
 }
-.example_users th{
+
+.example_users th {
   padding: 5px;
-  color: green;
-  border: 1px solid green;
+  color: #9ba415;
+  border: 1px solid #9ba415;
 }
-.example_users tr,th,td{
-  padding: 5px;
-  border: 1px solid green;
+
+.example_users table {
+  width: 100%;
+  border: 1px solid #9ba415;
+}
+
+.example_users td{
+  padding: 15px;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid #9ba415;
+  border-spacing: 0;
 }
