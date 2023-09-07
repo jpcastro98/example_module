@@ -45,10 +45,11 @@ class ExampleService
    * Función para obtener los usuarios
    */
 
-   public function getUsers($id) {
+  public function getUsers($id)
+  {
 
     $query = $this->connection->select('example_users', 'u')
-      ->fields('u', ['id', 'name', 'identification', 'birthdate','position_id','status']);
+      ->fields('u', ['id', 'name', 'identification', 'birthdate', 'position_id', 'status']);
     $query->condition('id', $id, '=');
     $result = $query->execute();
     if ($result) {
@@ -56,10 +57,15 @@ class ExampleService
       return $data;
     }
   }
-  public function getAllUsers() {
+
+  /**
+   * Funcion para obtener todos los usuarios.
+   */
+  public function getAllUsers()
+  {
 
     $query = $this->connection->select('example_users', 'u')
-      ->fields('u', ['id', 'name', 'identification', 'birthdate','position_id','status']);
+      ->fields('u', ['id', 'name', 'identification', 'birthdate', 'position_id', 'status']);
     $result = $query->execute();
     if ($result) {
       $data = $result->fetchAll();
@@ -84,15 +90,20 @@ class ExampleService
       'position_id' => $position,
       'status' => $status
     ];
-    /**Se ejecuta el query de insert para la base de datos */
+    /**
+     * Se ejecuta el query de insert para la base de datos
+     */
     $query = $this->connection->insert('example_users')->fields($data)->execute();
     if ($query) {
       return 'Los datos se registraron correctamente.';
     }
   }
 
+  /**
+   * Funcion de actualizar el estado
+   */
 
-  public function updateUser($id,$name, $identification, $birthdate, $position)
+  public function updateUser($id, $name, $identification, $birthdate, $position)
   {
     /**
      * Se valida el cargo para guardar el estado
@@ -105,25 +116,25 @@ class ExampleService
       'position_id' => $position,
       'status' => $status
     ];
-    /**Se ejecuta el query de insert para la base de datos */
-    $query = $this->connection->update('example_users')->fields($data)->condition('id',$id)->execute();
+    /**
+     * Se ejecuta el query de update para la base de datos
+     *
+     */
+    $query = $this->connection->update('example_users')->fields($data)->condition('id', $id)->execute();
     if ($query) {
       return 'Los datos se actualizaron correctamente.';
     }
   }
+  /**
+   * Función para eliminar un usuario
+   *
+   */
+  public function deleteUser($id)
+  {
 
-
-
-    /**
-     * Función para eliminar un usuario
-     *
-     */
-    public function deleteUser($id) {
-
-      $delete = $this->connection->delete('example_users')->condition('id', $id)->execute();
-      if ($delete) {
-        return 'Usuario eliminado.';
-      }
-    /***/
+    $delete = $this->connection->delete('example_users')->condition('id', $id)->execute();
+    if ($delete) {
+      return 'Usuario eliminado.';
+    }
   }
 }
