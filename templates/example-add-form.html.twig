@@ -1,6 +1,6 @@
 <div class="row container_fields">
   <h1> Grupo Estrenar Vivienda  </h1>
-  {{form|without('advanced','library','name','identification','birthdate','position_id','output','actions')}}
+  {{form|without('library','name','identification','birthdate','position_id','output','submit')}}
 	<div class="container_custom_fields">
 		{{ form.name }}
 		{{ form.identification }}
@@ -14,6 +14,6 @@
 		{{ form.output }}
 	</div>
   <div class="container_custom_fields">
-		{{ form.actions }}
+		{{ form.submit }}
 	</div>
 </div>
