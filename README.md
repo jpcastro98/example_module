@@ -22,9 +22,9 @@ Pasos para desplegar el proyecto:
 
 1. Clonar el proyecto desde el repositorio.
 `git clone https://github.com/jpcastro98/example_module.git`
-3. Validar la configuración en el archivo `.lando.yml` y asegurarse de que sea correcta. En caso de ser necesario, crear el archivo con la configuración adecuada. Por ejemplo:
+2. Validar la configuración en el archivo `.lando.yml` y asegurarse de que sea correcta. En caso de ser necesario, crear el archivo con la configuración adecuada. Por ejemplo:
 ```
-name: drupal9app
+name: exampemodule
 recipe: drupal9
 config:
   webroot: web
@@ -34,40 +34,55 @@ config:
 
 ```
 
-
 3. Ejecutar el comando `lando start` para iniciar el contenedor.
 4. Ejecutar `lando composer install` para instalar las dependencias del proyecto.
 5. Ejecutar el comando `lando info` para obtener las credenciales de la base de datos. Crear y configurar el archivo `$settings.local.php` para entornos locales basado en el `$settings.php` con las credenciales correspondientes.
-6. Ejecutar `lando drush en example_module` y `lando drush en example_module_rest` para instalar los modulos, tener en cuenta las dependecias.
-8. En la configuración del modulo restui "admin/config/services/rest" habilitar el api ExampleRest.
+6. Ejecutar `lando drush en example_module` y `lando drush en example_module_rest` para instalar los modulos, tener en cuenta las dependecias y si es necesario instalarlas antes de instalar el modulo.
+
 
 Estos pasos te permitirán desplegar el proyecto utilizando Lando.
 
 
 ### Form:
 /example-module/form
-Mediante la APIFORM de drupal Se creo el formulario para registrar usuarios, el formulario funciona mediante el envió de ajax, también se creo un template twig custom para mostrar el formulario y se le aplicaron estilos
+Mediante el APIForm  de drupal Se creo el formulario para registrar usuarios, el formulario funciona mediante el envió de ajax, también se creo un template twig custom para mostrar el formulario y se le aplicaron estilos.
 
 Los datos registrados en este formulario se guardan en la tabla example_users que se crea cuando se instala el modulo.
 
-### Data
+### Data:
 /example-module/data
 Mediante un controlador vamos a mostrar en esta ruta los datos registrados en el formulario visitado anteriormente.
 
 ### Service:
 El ExampleService, es el servicio que nos permite consultar y almacenar los datos en la base de datos.
-### Cargos
+### Cargos:
  Para los cargos al instalar el modulo mediante el hook_install se crea una taxonomía (Positions) en la cual también se crean 3 terminos por defecto que son los cargos relacionados en la prueba, esto con el fin de que sead administrables y se puedan agregar más cargos en un futuro.
 
 ### example_module_rest:
-  Se creo un modulo REST, que tiene como dependencias los siguientes modulos:
+  Se creo un modulo REST, que tiene como dependencias los siguientes modulos que son necesarios instalar:
 
   ```
     -example_module
     -rest
     -restui
     -user
+  ```
+si se cuenta con el modulo restui activar el api ExampleUser en su configuración.
 la ruta para consultar la api es '/api/example-module-rest/{id}'.
+
+Para hacer peticiones POST o PATCH sólo se aceptan los campos propuestos en la prueba ejemplo:
+
+```
+{
+  'name':'Prueba',
+  'identification':123456789,
+  'birthdate': 1998-07-06',
+  'position_id':'1'
+}
+  ```
+
+
+
 
 
 

@@ -1,19 +1,21 @@
 <div class="row container_fields">
-  <h1> Grupo Estrenar Vivienda  </h1>
-  {{form|without('library','name','identification','birthdate','position_id','output','submit')}}
+	<header>
+		<img src="/modules/custom/example_module/img/logo.png" alt="logo">
+	</header>
+	{{form|without('library','name','identification','birthdate','position_id','output','submit')}}
 	<div class="container_custom_fields">
 		{{ form.name }}
 		{{ form.identification }}
 	</div>
-  <div class="container_custom_fields">
+	<div class="container_custom_fields">
 		{{ form.birthdate }}
 		{{ form.position_id }}
 	</div>
 
-  <div class="container_custom_outpot">
+	<div class="container_custom_outpot">
 		{{ form.output }}
 	</div>
-  <div class="container_custom_fields">
+	<div class="container_custom_fields">
 		{{ form.submit }}
 	</div>
 </div>

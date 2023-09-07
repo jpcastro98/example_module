@@ -1,0 +1,22 @@
+{
+    "name": "jcarvajal/example_module",
+    "description": "Test Module",
+    "type": "drupal-custom-module",
+    "authors": [
+        {
+            "name": "jcastro98",
+            "email": "juanparc18@gmail.com"
+        }
+    ],
+    "require": {
+        "drupal/restui": "*",
+        "composer/installers": "*"
+    },
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ]
+}

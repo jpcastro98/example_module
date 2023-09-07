@@ -4,5 +4,5 @@ description: Prueba de desarrollador Backend
 package: Grupo Estrenar Vivienda
 core_version_requirement: ^8 || ^9
 dependencies:
-  - user
-  - taxonomy
+  - drupal:user
+  - drupal:taxonomy
