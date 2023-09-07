@@ -85,6 +85,9 @@ class ExampleForm extends FormBase
       '#title' => $this->t('Fecha de nacimiento'),
       '#description' => $this->t('Ingresa tu fecha de nacimiento.'),
       '#required' => TRUE,
+      '#attributes' => [
+        'max' => date('Y-m-d'),
+      ],
     ];
 
     $form['position_id'] = [
@@ -103,11 +106,11 @@ class ExampleForm extends FormBase
     ];
 
 
-    $form['actions']['submit'] = [
+    $form['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Enviar'),
       '#ajax' => [
-        'callback' => '::submitForm',
+        'callback' => '::submitCustomForm',
         'wrapper' => 'edit-output',
         'progress' => [
           'type' => 'throbber',
@@ -142,6 +145,14 @@ class ExampleForm extends FormBase
    */
 
   public function submitForm(array &$form, FormStateInterface $form_state)
+  {
+
+  }
+
+  /**
+   * Función para ajax
+   */
+  public function submitCustomForm(array &$form, FormStateInterface $form_state)
   {
     // If $form_state contains errors, populate the ajaxResponse content with the error messages
     if ($form_state->hasAnyErrors()) {
