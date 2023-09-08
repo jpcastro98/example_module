@@ -5,8 +5,6 @@ namespace Drupal\example_module\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\example_module\Services\ExampleService;
 
@@ -107,7 +105,7 @@ class ExampleForm extends FormBase
     ];
 
 
-    $form['submit'] = [
+    $form['submit_custom'] = [
       '#type' => 'submit',
       '#value' => $this->t('Enviar'),
       '#ajax' => [

@@ -60,6 +60,7 @@ El ExampleService, es el servicio que nos permite consultar y almacenar los dato
 
 ### example_module_rest:
   Se creo un modulo REST, que tiene como dependencias los siguientes modulos que son necesarios instalar:
+  - drupal/restui: [drupal/restui](https://www.drupal.org/project/restui)
 
   ```
     -example_module
@@ -74,10 +75,10 @@ Para hacer peticiones POST o PATCH sólo se aceptan los campos propuestos en la 
 
 ```
 {
-  'name':'Prueba',
-  'identification':123456789,
-  'birthdate': 1998-07-06',
-  'position_id':'1'
+    'name':'Prueba',
+    'identification':123456789,
+    'birthdate': 1998-07-06',
+    'position_id':'1'
 }
   ```
 
