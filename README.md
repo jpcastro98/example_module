@@ -68,7 +68,7 @@ El ExampleService, es el servicio que nos permite consultar y almacenar los dato
     -restui
     -user
   ```
-si se cuenta con el modulo restui activar el api ExampleUser en su configuración.
+si se cuenta con el modulo restui activar el api  ExampleRest en su configuración.
 la ruta para consultar la api es '/api/example-module-rest/{id}'.
 
 Para hacer peticiones POST o PATCH sólo se aceptan los campos propuestos en la prueba ejemplo:
