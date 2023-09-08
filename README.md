@@ -72,11 +72,17 @@ si se cuenta con el modulo restui activar el api  ExampleRest en su configuraci√
 ```
 admin/config/services/rest/resource/example_module_rest/edit
  ```
-Y actuvar sus permisosn en :
+Y activar sus permisos en :
  ```
 admin/people/permissions#module-rest
  ```
-la ruta para consultar la api es '/api/example-module-rest/{id}'.
+la rutas para consultar la api es
+ ```
+ - GET,PATCH,DELETE
+'/api/example-module-rest/{id}'.
+ - POST
+'/api/example-module-rest/{id}'.
+ ```
 
 Para hacer peticiones POST o PATCH s√≥lo se aceptan los campos propuestos en la prueba ejemplo:
 
