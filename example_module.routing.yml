@@ -4,12 +4,12 @@ example_module.example_controller:
     _title: 'Tabla de usuarios'
     _controller: '\Drupal\example_module\Controller\ExampleModuleController::build'
   requirements:
-    _permission: 'administer'
+    _permission: 'access content'
 
 example_module.example_form:
   path: '/example-module/form'
   defaults:
-    _title: Example Form 
+    _title: 'Example Form'
     _form: 'Drupal\example_module\Form\ExampleForm'
   requirements:
-    _permission: 'administer'
+    _permission: 'access content'

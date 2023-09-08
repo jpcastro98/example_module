@@ -6,8 +6,7 @@
       <th>Identificación</th>
       <th>Fecha de Nacimiento</th>
       <th>Cargo Id</th>
-      <th>Estado</th>
-    </tr>
+     <th>Estado</th>
   </thead>
   <tbody>
     {% for item in data %}
@@ -16,7 +15,7 @@
         <td>{{ item.name }}</td>
         <td>{{ item.identification }}</td>
         <td>{{ item.birthdate|date('Y-m-d') }}</td>
-        <td>{{ item.position_id }}</td>
+        <td>{{ positions[item.position_id] }}</td>
         <td>{{ item.status ? 'Activo' : 'Inactivo' }}</td>
       </tr>
     {% endfor %}

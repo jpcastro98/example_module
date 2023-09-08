@@ -1,7 +1,9 @@
 {
     "name": "jcarvajal/example_module",
-    "description": "Test Module",
     "type": "drupal-custom-module",
+    "description": "Modulo personalizado para prueba",
+    "keywords": ["Drupal"],
+    "prefer-stable": true,
     "authors": [
         {
             "name": "jcastro98",

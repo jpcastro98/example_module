@@ -1,0 +1,13 @@
+id: example_module_rest_config
+plugin_id: 'example_module_rest'
+granularity: resource
+configuration:
+  methods:
+    - GET
+    - POST
+    - PATCH
+    - DELETE
+  formats:
+    - json
+  authentication:
+    - basic_auth
